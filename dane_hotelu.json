@@ -1,0 +1,26 @@
+{
+    "pokoje": [
+        {
+            "typ": "Pokoj",
+            "numer": 101,
+            "pojemnosc": 2,
+            "cena": 200.0
+        },
+        {
+            "typ": "Pokoj",
+            "numer": 102,
+            "pojemnosc": 1,
+            "cena": 150.0
+        },
+        {
+            "typ": "Apartament",
+            "numer": 999,
+            "pojemnosc": 2,
+            "cena": 200.0,
+            "udogodnienia": [
+                "Jakuzzi",
+                "Szampan"
+            ]
+        }
+    ]
+}
