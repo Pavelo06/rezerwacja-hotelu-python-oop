@@ -2,12 +2,12 @@ from hotel_manager import HotelManager
 from modele import BrakWolnychPokoiError
 
 def start():
-    hotel = HotelManager("Grand Python Plaza")
+    hotel = HotelManager("Hotel")
 
     while True:
         print(f"\nWitaj w systemie {hotel.nazwa}!")
-        print("1. Zaloguj jako Klient (Nowa Rezerwacja)")
-        print("2. Zaloguj jako Obsługa Hotelu (Raport Przychodu)")
+        print("1. Zaloguj jako Klient")
+        print("2. Zaloguj jako Obsługa Hotelu")
         print("3. Wyjście")
         
         wybor = input("Wybierz opcję (1-3): ")
@@ -22,19 +22,19 @@ def start():
 
             try:
                 rezerwacja = hotel.utworz_rezerwacje(imie, nazwisko, data_od, data_do, osoby)
-                print(f"\n✅ SUKCES! Zarezerwowano pokój nr {rezerwacja.pokoj.numer}.")
+                print(f"\nSUKCES! Zarezerwowano pokój nr {rezerwacja.pokoj.numer}.")
                 print(f"Kwota do zapłaty przy zameldowaniu: {rezerwacja.oblicz_koszt_calkowity():.2f} PLN")
             
             except ValueError as e:
-                print(f"❌ BŁĄD DANYCH: Upewnij się, że wpisujesz datę w formacie YYYY-MM-DD (np. 2024-05-10).")
+                print(f"BŁĄD DANYCH: Upewnij się, że wpisujesz datę w formacie YYYY-MM-DD (np. 2024-05-10).")
             except BrakWolnychPokoiError as e:
-                print(f"❌ ODRZUCONO: {e}")
+                print(f"ODRZUCONO: {e}")
 
         elif wybor == '2':
             hotel.generuj_raport_przychodu()
 
         elif wybor == '3':
-            print("Zamykanie systemu. Do widzenia!")
+            print("Zamykanie systemu. Dowidzenia!")
             break
         else:
             print("Nieznana opcja. Spróbuj ponownie.")

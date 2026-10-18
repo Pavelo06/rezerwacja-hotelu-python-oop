@@ -17,7 +17,7 @@ class HotelManager:
             self._pokoje = [
                 Pokoj(101, 2, 200.0),
                 Pokoj(102, 1, 150.0),
-                Apartament(999, 2, 200.0, ["Jakuzzi", "Szampan"])
+                Apartament(999, 2, 200.0, ["Jacuzzi", "Szampan"])
             ]
             self.zapisz_dane()
             return
@@ -25,7 +25,7 @@ class HotelManager:
         with open(self.plik_danych, "r", encoding="utf-8") as f:
             dane = json.load(f)
             
-            # Wczytywanie pokoi (z zachowaniem polimorfizmu)
+            # Wczytywanie pokoi
             for p in dane.get("pokoje", []):
                 if p["typ"] == "Apartament":
                     self._pokoje.append(Apartament(p["numer"], p["pojemnosc"], p["cena"], p["udogodnienia"]))
@@ -68,7 +68,7 @@ class HotelManager:
                 klient = Klient(imie, nazwisko)
                 nowa_rez = Rezerwacja(klient, pokoj, data_od, data_do)
                 self._rezerwacje.append(nowa_rez)
-                self.zapisz_dane() # Zapisujemy natychmiast po rezerwacji
+                self.zapisz_dane()
                 return nowa_rez
 
         raise BrakWolnychPokoiError(f"Brak wolnych pokoi {pojemnosc}-osobowych.")

@@ -1,5 +1,6 @@
 from datetime import datetime
 
+# Własny wyjątek
 class BrakWolnychPokoiError(Exception):
     pass
 
@@ -8,6 +9,7 @@ class Klient:
         self.imie = imie
         self.nazwisko = nazwisko
 
+# Klasa bazowa
 class Pokoj:
     def __init__(self, numer: int, pojemnosc: int, cena_podstawowa: float):
         self.numer = numer
@@ -17,13 +19,13 @@ class Pokoj:
     def oblicz_cene_za_dobe(self) -> float:
         return self._cena_podstawowa
 
-    # Przygotowanie do zapisu (serializacja)
+    # Zapis
     def to_dict(self):
         return {"typ": "Pokoj", "numer": self.numer, "pojemnosc": self.pojemnosc, "cena": self._cena_podstawowa}
 
 class Apartament(Pokoj):
     def __init__(self, numer: int, pojemnosc: int, cena_podstawowa: float, udogodnienia: list):
-        super().__init__(numer, pojemnosc, cena_podstawowa)
+        super().__init__(numer, pojemnosc, cena_podstawowa) # Wywołuje konstruktor klasy 'Pokoj'
         self.udogodnienia = udogodnienia
 
     def oblicz_cene_za_dobe(self) -> float:

@@ -18,9 +18,29 @@
             "pojemnosc": 2,
             "cena": 200.0,
             "udogodnienia": [
-                "Jakuzzi",
+                "Jacuzzi",
                 "Szampan"
             ]
+        }
+    ],
+    "rezerwacje": [
+        {
+            "klient": {
+                "imie": "Jan",
+                "nazwisko": "Kowalski"
+            },
+            "numer_pokoju": 101,
+            "data_od": "2026-10-07",
+            "data_do": "2026-10-10"
+        },
+        {
+            "klient": {
+                "imie": "Marek",
+                "nazwisko": "Nowak"
+            },
+            "numer_pokoju": 101,
+            "data_od": "2026-11-11",
+            "data_do": "2026-11-12"
         }
     ]
 }
