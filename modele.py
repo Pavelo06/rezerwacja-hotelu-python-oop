@@ -78,3 +78,22 @@ class Apartament(Pokoj):
     def to_dict(self):
         return {"typ": "Apartament", "numer": self.numer, "pojemnosc": self.pojemnosc, 
                 "cena": self.cena_podstawowa, "udogodnienia": self.udogodnienia}
+
+class Rezerwacja:
+    def __init__(self, klient: Klient, pokoj: Pokoj, data_od: datetime, data_do: datetime):
+        self.klient = klient
+        self.pokoj = pokoj
+        self.data_od = data_od
+        self.data_do = data_do
+
+    def oblicz_koszt_calkowity(self) -> float:
+        liczba_dni = (self.data_do - self.data_od).days
+        return liczba_dni * self.pokoj.oblicz_cene_za_dobe()
+
+    def to_dict(self):
+        return {
+            "klient": {"imie": self.klient.imie, "nazwisko": self.klient.nazwisko},
+            "numer_pokoju": self.pokoj.numer,
+            "data_od": self.data_od.strftime("%Y-%m-%d"),
+            "data_do": self.data_do.strftime("%Y-%m-%d")
+        }
