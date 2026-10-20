@@ -41,6 +41,15 @@
             "numer_pokoju": 101,
             "data_od": "2026-11-11",
             "data_do": "2026-11-12"
+        },
+        {
+            "klient": {
+                "imie": "Jdsa",
+                "nazwisko": "Fsadf"
+            },
+            "numer_pokoju": 101,
+            "data_od": "2026-10-10",
+            "data_do": "2026-10-11"
         }
     ]
 }
